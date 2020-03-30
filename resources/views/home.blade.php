@@ -8,6 +8,8 @@
     <!-- Favicons -->
     <link rel="icon" href="img/favicons/favicon.ico">
 
+    <link rel=”canonical” href=”./” />
+
     <!-- Libs CSS -->
     <link rel="stylesheet" href="libs/flickity/dist/flickity.min.css">
     <link rel="stylesheet" href="libs/@fancyapps/fancybox/dist/jquery.fancybox.min.css">
@@ -20,7 +22,7 @@
     <!-- Theme CSS -->
     <link rel="stylesheet" href="css/theme.min.css">
 
-    <title>Cursos Online | CursosDeNet</title>
+    <title>Cursos Online de Diseño, Marketing, Animación, Programación | CursosDeNet</title>
 
   </head>
   <body>
@@ -30,7 +32,7 @@
 
         <!-- Brand -->
         <a class="navbar-brand" href="./">
-          CursosDeNet
+          CursosDe
         </a>
 
         <!-- Toggler -->
@@ -46,7 +48,19 @@
             <li class="nav-item">
               <a class="nav-link" href="./">Home</a>
             </li>
-            <li class="nav-item dropdown position-static">
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.domestika.org/es/courses/popular?atag=fe6081&utm_medium=affiliates&utm_source=domestika_33_fe6081" rel="nofollow">¡M&aacute;s Vendidos del Mes! &#x1F525;</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.domestika.org/es/courses/recent?atag=fe6081&utm_medium=affiliates&utm_source=domestika_33_fe6081" rel="nofollow">¡Los M&aacute;s Nuevos!</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.domestika.org/es/courses/recommended?atag=fe6081&utm_medium=affiliates&utm_source=domestika_33_fe6081" rel="nofollow">Recomendados</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.domestika.org/es/courses/areas?atag=fe6081&utm_medium=affiliates&utm_source=domestika_33_fe6081" rel="nofollow">Categor&iacute;as</a>
+            </li>
+            {{-- <li class="nav-item dropdown position-static">
 
               <!-- Toggle -->
               <a class="nav-link" data-toggle="dropdown" href="./#">Categor&iacute;as</a>
@@ -465,11 +479,11 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="docs/getting-started.html">Docs</a>
-            </li>
+            </li> --}}
           </ul>
 
           <!-- Nav -->
-          <ul class="navbar-nav flex-row">
+          {{-- <ul class="navbar-nav flex-row">
             <li class="nav-item">
               <a class="nav-link" data-toggle="modal" href="index.html#modalSearch">
                 <i class="fe fe-search"></i>
@@ -492,7 +506,7 @@
                 </span>
               </a>
             </li>
-          </ul>
+          </ul> --}}
 
         </div>
 
@@ -508,7 +522,7 @@
             <!-- Text -->
             <div class="text-center text-white">
               <span class="heading-xxs letter-spacing-xl">
-                #YoAprendoEncasa > <u><a href="#" class="text-white">Cursos Gratis</a></u>
+                #YoAprendoEncasa > <u><a href="https://www.domestika.org/es/courses/popular/?atag=fe6081&utm_medium=affiliates&utm_source=domestika_33_fe6081" class="text-white" rel="nofollow">¡Ver todos los cursos!</a></u>
               </span>
             </div>
 
@@ -518,14 +532,14 @@
     </div>
 
     <!-- BEST PICKS -->
-    <section class="pt-8 pb-8">
+    <section class="pt-8 pb-6">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-12 col-md-10 col-lg-8 col-xl-6 text-center">
 
             <!-- Preheading -->
             <h6 class="heading-xxs mb-3 text-gray-400">
-              CursosDeNet
+              #CursosDe
             </h6>
 
             <!-- Heading -->
@@ -539,145 +553,75 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-6 col-md-4 col-lg-3">
-            <div class="card card-lg shadow-hover">
+          @foreach ($categorias as $categoria)
+            <div class="col-6 col-md-4 col-lg-3 mb-8">
+              <div class="card card-lg shadow-hover">
 
-              <!-- Circle -->
-              <!-- <div class="card-circle card-circle-right">
-                <strong class="font-size-xs">save</strong>
-                <span class="h6 mb-0">30%</span>
-              </div> -->
-
-              <!-- Image -->
-              <img src="img/products/product-94.jpg" alt="..." class="card-img-top">
-
-              <!-- Body -->
-              <div class="card-body mt-n6 text-center">
-
-                <!-- Heading -->
-                <p class="mb-3 font-weight-bold">
-                  Blue contact Lenses <br>
-                  <span class="font-size-xs text-gray-350 text-decoration-line-through">$40.00</span> <span class="text-primary">$28.00</span>
-                </p>
-
-                <!-- Text -->
-                <p class="text-muted">
-                  Good male give subdue set one, image that his beginning.
-                </p>
-
-                <!-- Button -->
-                <a href="index-landing.html#!" class="btn btn-sm btn-outline-primary">
-                  Add to Cart
+                <!-- Circle -->
+                <!-- <div class="card-circle card-circle-right">
+                  <strong class="font-size-xs">save</strong>
+                  <span class="h6 mb-0">30%</span>
+                </div> -->
+                <!-- Image -->
+                <a href="{{$categoria->link . "?atag=fe6081&utm_medium=affiliates&utm_source=domestika_33_fe6081"}}" rel="nofollow">
+                  <img src="{{$categoria->imagen}}" alt="{{$categoria->alt}}" class="card-img-top">
                 </a>
+                <!-- Body -->
+                <div class="card-body mt-n6 text-center">
+
+                  <!-- Heading -->
+                  <h3 class="mb-3 mt-3">
+                    {{$categoria->nombre}}
+                  </h3>
+
+                  <!-- Text -->
+                  <p class="text-muted">
+                    {{$categoria->descripcion}}.
+                  </p>
+
+                  <!-- Button -->
+                  <a href="{{$categoria->link . "?atag=fe6081&utm_medium=affiliates&utm_source=domestika_33_fe6081"}}" class="btn btn-sm btn-outline-primary" rel="nofollow">
+                    Ver Cursos
+                  </a>
+
+                </div>
 
               </div>
-
             </div>
+          @endforeach
+        </div>
+        <div class="row mb-10">
+          <div class="col-12">
+
+            <!-- Link  -->
+            <div class="mt-7 text-center">
+              <a class="btn btn-lg btn-outline-primary" href="https://domestika.org/es/courses/?atag=fe6081&utm_medium=affiliates&utm_source=domestika_33_fe6081" rel="nofollow">Ver todos los cursos</a>
+            </div>
+
           </div>
-          <div class="col-6 col-md-4 col-lg-3">
-            <div class="card card-lg shadow-hover">
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-10 font-size-lg text-gray-500">
 
-              <!-- Circle -->
-              <!-- <div class="card-circle card-circle-right">
-                <strong class="font-size-xs">save</strong>
-                <span class="h6 mb-0">30%</span>
-              </div> -->
+            <!-- Heading -->
+            <h2 class="mb-5 text-left text-body">Cursosde, son cursos para personas creativas y ar&iacute;sticas.</h2>
 
-              <!-- Image -->
-              <img src="img/products/product-94.jpg" alt="..." class="card-img-top">
+            <p>
+              Los cursos que ofrecemos son algo diferente, no son solamente para pasar el rato, sino que son para personas como t&uacute; a la que la miran raro o mejor dicho a la que le gusta lo distinto. ¿Existe acaso alg&uacute;n lugar en d&oacute;nde nos encontremos?
+            </p>
+            <p>
+              Por suerte ya encontraste esta tienda de cursos online en donde podr&aacute;s adentrarte en Cursos de Dise&ntilde;o, Marketing, Ilustraci&oacute;n, Fotograf&iacute;a, Videojuegos, Animaci&oacute;n 2D, Animaci&oacute;n 3D, Caligraf&iacute;a, Arquitectura.
+            </p>
 
-              <!-- Body -->
-              <div class="card-body mt-n6 text-center">
+            <h2 class="mb-5 text-left text-body">¿Por qu&eacute; deber&iacute;as elegir CursosDe para tus cursos?</h2>
 
-                <!-- Heading -->
-                <p class="mb-3 font-weight-bold">
-                  Blue contact Lenses <br>
-                  <span class="font-size-xs text-gray-350 text-decoration-line-through">$40.00</span> <span class="text-primary">$28.00</span>
-                </p>
+            <p>
+              Somos apasionados al igual que t&uacute; y va mas alla de los cursos online o de la tienda, simplemente nos complementamos contigo. En nuestro blog encontrarás art&iacute;culos de temas relacionados a los cursos que te interesen, como as&iacute; tambi&eacute;n temas que te puedan despertar ese no se que de la creatividad musical, art&iacute;stica, manual, o bien voladora.
+            </p>
+            <p>
+              Te damos a la bienvenida y nos encanta que formes parte de nuesta comunidad. Esperamos que disfrutes de los productos de c&oacute;omics que aqu&iacute; encontrar&aacute;s. No dudes en contactar con nosotros para cualquier tipo de informaci&oacute;n o pregunta que quieras hacer, estaremos encantados de responderte.
+            </p>
 
-                <!-- Text -->
-                <p class="text-muted">
-                  Good male give subdue set one, image that his beginning.
-                </p>
-
-                <!-- Button -->
-                <a href="index-landing.html#!" class="btn btn-sm btn-outline-primary">
-                  Add to Cart
-                </a>
-
-              </div>
-
-            </div>
-          </div>
-          <div class="col-6 col-md-4 col-lg-3">
-            <div class="card card-lg shadow-hover">
-
-              <!-- Circle -->
-              <!-- <div class="card-circle card-circle-right">
-                <strong class="font-size-xs">save</strong>
-                <span class="h6 mb-0">30%</span>
-              </div> -->
-
-              <!-- Image -->
-              <img src="img/products/product-94.jpg" alt="..." class="card-img-top">
-
-              <!-- Body -->
-              <div class="card-body mt-n6 text-center">
-
-                <!-- Heading -->
-                <p class="mb-3 font-weight-bold">
-                  Blue contact Lenses <br>
-                  <span class="font-size-xs text-gray-350 text-decoration-line-through">$40.00</span> <span class="text-primary">$28.00</span>
-                </p>
-
-                <!-- Text -->
-                <p class="text-muted">
-                  Good male give subdue set one, image that his beginning.
-                </p>
-
-                <!-- Button -->
-                <a href="index-landing.html#!" class="btn btn-sm btn-outline-primary">
-                  Add to Cart
-                </a>
-
-              </div>
-
-            </div>
-          </div>
-          <div class="col-6 col-md-4 col-lg-3">
-            <div class="card card-lg shadow-hover">
-
-              <!-- Circle -->
-              <!-- <div class="card-circle card-circle-right">
-                <strong class="font-size-xs">save</strong>
-                <span class="h6 mb-0">30%</span>
-              </div> -->
-
-              <!-- Image -->
-              <img src="img/products/product-94.jpg" alt="..." class="card-img-top">
-
-              <!-- Body -->
-              <div class="card-body mt-n6 text-center">
-
-                <!-- Heading -->
-                <p class="mb-3 font-weight-bold">
-                  Blue contact Lenses <br>
-                  <span class="font-size-xs text-gray-350 text-decoration-line-through">$40.00</span> <span class="text-primary">$28.00</span>
-                </p>
-
-                <!-- Text -->
-                <p class="text-muted">
-                  Good male give subdue set one, image that his beginning.
-                </p>
-
-                <!-- Button -->
-                <a href="index-landing.html#!" class="btn btn-sm btn-outline-primary">
-                  Ver Cursos
-                </a>
-
-              </div>
-
-            </div>
           </div>
         </div>
       </div>
@@ -685,7 +629,7 @@
 
     <!-- FOOTER -->
     <footer class="bg-dark bg-cover @@classList" style="background-image: url('assets/img/patterns/pattern-2.svg')">
-      <div class="py-12 border-bottom border-gray-700">
+      {{-- <div class="py-12 border-bottom border-gray-700">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-12 col-md-10 col-lg-8 col-xl-6">
@@ -806,14 +750,14 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> --}}
       <div class="py-6">
         <div class="container">
           <div class="row">
             <div class="col">
               <!-- Copyright -->
               <p class="mb-3 mb-md-0 font-size-xxs text-muted">
-                © 2020 Todos los derechos reservados. CursosDeNet.
+                © 2020 Todos los derechos reservados. CursosDe.
               </p>
             </div>
           </div>

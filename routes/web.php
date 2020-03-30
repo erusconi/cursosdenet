@@ -12,5 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    $categorias = DB::table('categorias')->get();
+    return view('home', ['categorias' => $categorias]);
 });
+
+// Route::get('/', 'Categoria@lista');
